@@ -1,5 +1,5 @@
 <?php
-use app\Http\Controllers\BarangController;
+use App\Http\Controllers\BarangController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,43 +14,24 @@ use app\Http\Controllers\BarangController;
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/0083barang', function () {
-    return view('0083barang');
-});
-Route::get('/pelanggan', function () {
-    return view('pelanggan');
-});
-Route::get('/transaksi', function () {
-    return view('transaksi');
-});
-Route::get('/user', function () {
-    return view('user');
-});
-Route::get('/0083barang/barang_tambah', function () {
-    return view('barang_tambah');
-});
-Route::get('/pelanggan/pelanggan_tambah', function () {
-    return view('pelanggan_tambah');
-});
-Route::get('/transaksi/transaksi_tambah', function () {
-    return view('transaksi_tambah');
-});
-Route::get('/user/user_tambah', function () {
-    return view('user_tambah');
-});
-Route::get('/0083barang/barang_edit', function () {
-    return view('barang_edit');
-});
-Route::get('/pelanggan/pelanggan_edit', function () {
-    return view('pelanggan_edit');
-});
-Route::get('/transaksi/transaksi_edit', function () {
-    return view('transaksi_edit');
-});
-Route::get('/user/user_edit', function () {
-    return view('user_edit');
-});
-Route::post('/0083barang/barang_tambah/tambahbarang', function () {
-    return view('tambahbarang');
-});
-Route::resource('BarangController', app\Http\Controllers\BarangController::class);
+Route::get('/barang', 'App\Http\Controllers\BarangController@tampilbarang');
+Route::get('/pelanggan', 'App\Http\Controllers\BarangController@tampilpelanggan');
+Route::get('/transaksi', 'App\Http\Controllers\BarangController@tampiltrans');
+Route::get('/user', 'App\Http\Controllers\BarangController@tampiluser');
+Route::get('/barang/barang_tambah','App\Http\Controllers\BarangController@tambahbrg');
+Route::get('/pelanggan/pelanggan_tambah','App\Http\Controllers\BarangController@tambahplg');
+Route::get('/transaksi/transaksi_tambah','App\Http\Controllers\BarangController@tambahtrans');
+Route::get('/user/user_tambah','App\Http\Controllers\BarangController@tambahusr');
+Route::post('/barang/storebrg','App\Http\Controllers\BarangController@storebrg');
+Route::get('/barang/barang_edit/{id}','App\Http\Controllers\BarangController@editbrg');
+Route::get('/pelanggan/pelanggan_edit/{id}','App\Http\Controllers\BarangController@editplg');
+Route::get('/transaksi/transaksi_edit/{id}','App\Http\Controllers\BarangController@edittrans');
+Route::get('/user/user_edit/{id}','App\Http\Controllers\BarangController@editusr');
+Route::post('/barang/updatebrg','App\Http\Controllers\BarangController@updatebrg');
+Route::post('/pelanggan/updateplg','App\Http\Controllers\BarangController@updateplg');
+Route::post('/transaksi/updatetrans','App\Http\Controllers\BarangController@updatetrans');
+Route::post('/user/updateusr','App\Http\Controllers\BarangController@updateusr');
+Route::post('/barang/hapusbrg','App\Http\Controllers\BarangController@hapusbrg');
+Route::post('/pelanggan/hapusplg','App\Http\Controllers\BarangController@hapusplg');
+Route::post('/transaksi/hapustrans','App\Http\Controllers\BarangController@hapustrans');
+Route::post('/user/hapususr','App\Http\Controllers\BarangController@hapususr');

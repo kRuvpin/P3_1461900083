@@ -7,7 +7,7 @@
 		<div id="search">	
 </div>	  
         <h1>INI HALAMAN HOME</h1>
-		<li class="first"><a href="/0083barang">Barang</a></li>
+		<li class="first"><a href="/barang">Barang</a></li>
 		<li class="first"><a href="/pelanggan">Pelanggan</a></li>
         <li class="first"><a href="/transaksi">Transaksi</a></li>
         <li class="first"><a href="/user">User</a></li>

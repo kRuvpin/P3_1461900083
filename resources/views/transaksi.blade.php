@@ -1,58 +1,37 @@
+<html>
 <head>
-<meta name="viewport" content="width=device-width,
-initial-scale=1">
-<title>Data Transaksi</title>
-<style>
-table {
-border-collapse: collapse;
-border-spacing: 0;
-width: 100%;
-border: 1px solid #ddd;
-}
-thead {
-background-color: #f2f2f2;
-}
-th, td {
-text-align: left;
-padding: 8px;
-}
-tr:nth-child(even){background-color: #f2f2f2}
-.tambah{
-padding: 8px 16px ;
-text-decoration: none;
-}
-</style>
+	<title>CRUD</title>
 </head>
 <body>
-    <div style="overflow-x:auto;">
-    <a class="tambah" href="/transaksi/transaksi_tambah"> Tambah Data </a>
-    <table>
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>id_pelanggan</th>
-                <th>id_barang</th>
-                <th>aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-                $link = new mysqli("localhost","root","","p_ganjil3");
-                $q = $link->query("select * from transaksi");  
-                while ($r = $q->fetch_array()) { //mengambil data array hasil dari database dan menampung dalam variabel $r
-                echo "<tr>";
-                echo "<th><b>".$r['id']."</b></th>";
-                echo "<th><b>".$r['id_pelanggan']."</b></th>";
-                echo "<th><b>".$r['id_barang']."</b></th>"; 
-                ?>
-                <td>
-                  <a class="btn btn-warning btn-sm" href="=<?php echo $r['id'];?>">Edit</a>
-                  <a class="btn btn-danger btn-sm" href="=<?php echo $r['id'];?>">Hapus</a>
-                                  </td>
-                              </tr>
-               <?php } ?>
-        </tbody>
-    </table>
-    </div>
+ 
+	<h3>Data transaksi</h3>
+ 
+	<a href="/transaksi/transaksi_tambah"> + Tambah Baru</a>
+	
+	<br/>
+	<br/>
+ 
+	<table border="1">
+		<tr>
+			<th>id</th>
+			<th>id_transaksi</th>
+			<th>id_barang</th>
+			<th>Opsi</th>
+		</tr>
+		@foreach($transaksi as $trx)
+		<tr>
+			<td>{{ $trx->id }}</td>
+			<td>{{ $trx->id_pelanggan }}</td>
+			<td>{{ $trx->id_barang }}</td>
+			<td>
+				<a href="/transaksi/transaksi_edit/{{ $trx->id }}">Edit</a>
+				|
+				<a href="/transaksi/hapustrans/{{ $trx->id }}">Hapus</a>
+			</td>
+		</tr>
+		@endforeach
+	</table>
+ 
+ 
 </body>
 </html>
